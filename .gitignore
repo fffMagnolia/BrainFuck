@@ -1,5 +1,5 @@
 # general
 .DS_Store
 
-# test folder
-test/
+# self
+.gitignore
