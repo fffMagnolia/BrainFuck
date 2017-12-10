@@ -4,10 +4,15 @@ class BrainFuck {
     //init
     private $cmd = '';
     private $array = array(0);
-    //TODO: check $filename
+    
     public function __construct($filename) {
-        $this->setCmd(fopen($filename, 'r'));
-        $this->execute($this->cmd, $this->array);
+        if(preg_match('/.+.bf/', $filename) === 0) {
+            exit("This file is not found.");
+        }
+        else {
+            $this->setCmd(fopen($filename, 'r'));
+            $this->execute($this->cmd, $this->array);
+        }
     }
 
     public function setCmd($f) {
